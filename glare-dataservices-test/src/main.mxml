@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Image x="10" y="10" source="../assets/glare-logo.png" autoLoad="true"/>
+	<mx:Button x="10" y="83" label="Today" click="today()"/>
+	<mx:Button x="10" y="113" label="Sum" click="computeSum()"/>
+	<mx:Button x="10" y="143" label="Tweet" click="logTweet()"/>
+	<mx:Button x="10" y="173" label="Error" click="throwException()"/>
+
+	
+	<mx:Script>
+		<![CDATA[
+			import services.BenchService;
+			import models.Tweet;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.remoting.RemoteObject;
+			import mx.controls.Alert;
+			public function today():void {
+				var ro:RemoteObject = new RemoteObject("Glare.BenchService")
+				ro.addEventListener(FaultEvent.FAULT, handleFault)
+				ro.today.addEventListener(ResultEvent.RESULT, handleResult)
+				ro.today()
+			}
+			public function computeSum():void {
+				var ro:RemoteObject = new RemoteObject("Glare.BenchService")
+				ro.addEventListener(FaultEvent.FAULT, handleFault)
+				ro.computeSum.addEventListener(ResultEvent.RESULT, handleResult)
+				ro.computeSum(42,58)
+			}	
+			public function logTweet():void {
+				/**
+				var ro:RemoteObject = new RemoteObject("Glare.BenchService")
+				ro.addEventListener(FaultEvent.FAULT, handleFault)
+				ro.logTweet.addEventListener(ResultEvent.RESULT, handleResult)
+				ro.logTweet(new Tweet("flex is fun"))
+				 */
+				var bs:BenchService = new BenchService()
+				bs.logTweet(new Tweet("flex is fun"), handleResult)
+			}
+			public function throwException():void {
+				var bs:BenchService = new BenchService()
+				bs.throwException(handleResult)
+			}								
+			private function handleResult(event:ResultEvent):void {
+				Alert.show(event.result.toString())
+			}
+			private function handleFault(event:FaultEvent):void {
+				Alert.show(event.toString())
+			}
+		]]>
+	</mx:Script>
+	
+</mx:WindowedApplication>
