@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="remoting-service"
+    class="flex.messaging.services.RemotingService"
+    messageTypes="flex.messaging.messages.RemotingMessage">
+
+    <default-channels>
+        <channel ref="glare-amf"/>
+    </default-channels>
+	
+    <destination id="Glare.BenchService">
+        <properties>
+            <source>BenchService</source>
+        </properties>
+    </destination>
+	
+</service>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+
+    <services>
+        <service-include file-path="remoting-config.xml" />
+    </services>
+
+    <security>
+        <security-constraint id="sample-users">
+            <auth-method>Custom</auth-method>
+            <roles>
+                <role>sampleusers</role>
+            </roles>
+        </security-constraint>
+
+        <login-command class="flex.messaging.security.JRunLoginCommand" server="JRun"/>
+        <!-- Uncomment the correct app server
+        <login-command class="flex.messaging.security.TomcatLoginCommand" server="Tomcat"/>
+        <login-command class="flex.messaging.security.WeblogicLoginCommand" server="Weblogic"/>
+        <login-command class="flex.messaging.security.WebSphereLoginCommand" server="WebSphere"/>
+        -->
+    </security>
+
+    <channels>
+        <channel-definition id="glare-amf" class="mx.messaging.channels.AMFChannel">
+            <endpoint 
+            	uri="http://localhost:8888/amf" 
+            	class="flex.messaging.endpoints.AMFEndpoint"/>
+            <properties>
+                <polling-enabled>true</polling-enabled>
+            </properties>
+        </channel-definition>
+    </channels>
+
+    <clusters>
+        <cluster id="default-cluster" properties="jgroups-default.xml" />
+    </clusters>
+
+
+</services-config>
+ 
