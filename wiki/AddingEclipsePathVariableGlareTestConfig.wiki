@@ -1,4 +1,4 @@
-#summary instructions to add the *GlareTestConfig* path variable
+#summary instructions to add the GlareTestConfig path variable
 = Introduction =
 To run the test application in glare-dataservices-test, you need to a path variable to the Flex/Flash Builder environment. This variable is used by Eclipse to tell the compiler where to find the services-config.xml.
 
