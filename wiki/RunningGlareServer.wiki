@@ -1,10 +1,10 @@
 #summary configuration options when running GlareServer
 
 = Introduction =
-*GlareServer* is the web server that can dispatch AMF messages to Smalltalk services and send back the AMF repsonse to the client. GlareServer is written using the Opentalk framework available in Cincom VisualWorks.
+*!GlareServer* is the web server that can dispatch AMF messages to Smalltalk services and send back the AMF repsonse to the client. !GlareServer is written using the Opentalk framework available in Cincom !VisualWorks.
 
 === Start ===
-To start the GlareServer, evaluate:
+To start the !GlareServer, evaluate:
 {{{
 GlareServer current start
 }}}
@@ -20,3 +20,5 @@ Stop the server by evaluating:
 {{{
 GlareServer current stop
 }}}
+=== Debugging ===
+=== Logging ===
