@@ -7,7 +7,7 @@ For your applications, you do not need this variable as you can specify the comp
 = Details =
   * In the Preferences dialog, go to General->Workspace->Linked Resources
   * Enable linked resources
-  * Add variable *GlareTestConfig* that refers to the file services-config.xml
+  * Add variable *!GlareTestConfig* that refers to the file services-config.xml
 
 = Example =
 {{{
