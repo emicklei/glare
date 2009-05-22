@@ -1,0 +1,8 @@
+#summary instructions to install Glare-DataServices
+= Introduction =
+The Glare-!DataServices source is available as a bundle in the Cincom Public Store Repository. You need to connect to this repository to load the bundle and its dependencies.
+
+= Details =
+  * [http://www.cincomsmalltalk.com/CincomSmalltalkWiki/PostgreSQL+Access+Page Connect] to the Cincom Public Store Repository
+  * Open the list of Published Items
+  * Select and load bundle *!GlareDataServices*
