@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="344" height="508">
+	<mx:TextInput id="pattern" x="10" y="40" width="226" change="doSearch()"/>
+	<mx:Button id="search" x="244" y="40" label="Search" click="doSearch()"/>
+	<mx:List id="methods" x="10" y="70" width="299" height="403"></mx:List>
+	<mx:Label x="48" y="10" text="Glare Method Finder" fontSize="18"/>
+	
+	<mx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.remoting.mxml.RemoteObject;
+			
+			private function doSearch():void {
+				if (pattern.text.length == 0) return
+				var service:RemoteObject = new RemoteObject("MethodFinderService")
+				service.addEventListener(ResultEvent.RESULT, handleSearchResult)
+				service.getSelectorsMatching(pattern.text+'*')
+			}
+			private function handleSearchResult(event:ResultEvent):void {
+				methods.dataProvider = event.result as Array
+			}
+		]]>
+	</mx:Script>	
+</mx:WindowedApplication>
