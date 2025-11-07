@@ -2,4 +2,4 @@
 
 *Glare-!DataServices* (or GlareDS) provides the server component that allows Flash applications to perform methods on Smalltalk services. GlareDS is build on top of the Opentalk library and therefore can also run next to the Seaside framework in !VisualWorks and !WebVelocity.
 
-[http://ernestmicklei.com/2009/05/26/getting-started-with-glare-dataservices/ Getting Started with GlareDS]
+https://ernestmicklei.com/2009/05/getting-started-with-glare-dataservices
